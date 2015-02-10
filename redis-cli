@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+    printf "\E[0;31;40mPlease enter a string of redis command... (ex : ./redis.sh keys *)\E[0m\n"
+    exit
+fi
+
+if [ "$1" == "-a" ]; then
+    REDIS_COMMAND="redis-cli keys \"*\""
+else
+    REDIS_COMMAND="redis-cli $1 $2"
+fi
+
+while true;do
+    clear
+    eval ${REDIS_COMMAND}
+    sleep 1
+done
