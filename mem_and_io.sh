@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -z $1 ]; then
+    printf "\E[0;31;40mPlease enter a deamonk...\E[0m\n"
+    exit
+fi
+
 PROCESS_PID=`pidof ${1}`
 
 while true;do
