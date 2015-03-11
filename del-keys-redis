@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+    printf "\E[0;31;40mPlease enter a string of redis command... (ex : ./del-keys-redis queue)\E[0m\n"
+    exit
+fi
+
+REDIS_COMMAND="redis-cli KEYS \"${1}*\" | xargs redis-cli DEL"
+eval ${REDIS_COMMAND}
