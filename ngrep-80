@@ -5,4 +5,4 @@ if [ -z $1 ]; then
     exit
 fi
 
-sudo ngrep -d $1 -t '^(GET|POST|PUT) ' 'port 80'
+sudo ngrep -d $1 -t '^(GET|POST|PUT)' 'port 80'
